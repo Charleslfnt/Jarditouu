@@ -15,7 +15,7 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
 
 <h1>Ajouter un produit</h1>
 
-<form action="../controller/controlajout.php" method="POST"> 
+<form action="../controller/controlajout.php" method="POST" enctype="multipart/form-data"> 
     
 <fieldset>
                 <legend>Saisissez les informations</legend>

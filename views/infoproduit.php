@@ -67,7 +67,7 @@ break;
 ?>
 
 <a href="./form_modif.php?pro_id=<?=$product->pro_id?>"><button class="alert alert-warning" role="alert">Modifier</button></a> <br>
-<a href="../controller/delete_controller.php?pro_id=<?=$product->pro_id?>"><button class="alert alert-danger" role="alert">Delete</button></a>
+<a href="../controller/delete_controller.php?pro_id=<?=$product->pro_id;?>"><button class="alert alert-danger" role="alert">Delete</button></a>
 <br><br>
 
 </div>
