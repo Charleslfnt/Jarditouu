@@ -1,0 +1,26 @@
+verifer regex code postal
+else if (cpReg.test(cp.value) == false){
+        event.preventDefault();
+        missCp.textContent = "caractères incorrect";
+        missCp.style.color = "red"; 
+    } 
+
+
+fonctions checkbox et textarea 
+ /*function verify(){           // fonction dans ma fonction. Sert pour vérifier si ma checkbox est coché
+    
+
+      /*if (checkBox.checked == false){
+          event.preventDefault();
+          missCheck.textContent = "Veuillez accepter le traitement du formulaire";
+          missCheck.style.color = "red";
+      }}
+   
+      var textarea = document.getElementById("question");
+
+  function question(e){   // fonction qui vérifie si quelque chose à été entré dans le textarea
+
+  }
+
+  question();
+  verify();     //appel de la fonction qui vérifie */

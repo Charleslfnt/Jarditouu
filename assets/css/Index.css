@@ -1,0 +1,153 @@
+header  
+    {
+        display: flex;
+        justify-content: flex-start
+    }
+
+
+
+
+
+
+/*Bloc des liens de navigation fin*/
+.links 
+    {
+        height: 55px;
+        width: 100%;
+        background-color: darkgrey;
+        margin-top : -10px;
+        margin-bottom: 5px;
+        padding-top: 0px;
+        display: inline-block;
+        align-items: center;
+        border-radius: 10px;
+        
+    }
+
+
+
+    /*couleurs des liens*/
+
+a:link { color: black;}
+a:visited {color: black;}
+
+.li /*les 3 liens à l'intérieur du bloc links*/
+    {
+    display: inline-block;
+    margin: 1px;
+    padding: 5px;
+    color: white;
+    font-family: cursive;
+    }
+ 
+.promotion /*bannière de promotion*/
+    {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+    }
+
+    /*partie article*/
+
+.contain_index {
+    display : flex;
+}
+
+.article
+    {
+        flex : 1;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;        
+    }
+
+aside 
+    {
+        
+        background-color: grey;
+        border-radius: 10px;
+        width: 25%;
+
+         
+    }
+
+    /*partie tableau*/
+
+table
+    {
+margin: auto;
+    }
+td
+    {
+text-align :center;
+    }
+.tableh1    /* le h1 de la partie tableau*/
+    {
+        text-align: center;
+    }
+
+    /*partie formulaire*/
+
+fieldset
+    {
+        text-align: center;
+        margin: auto;
+    }
+
+.formh1
+    {
+        text-align: center;
+    }
+
+html {
+    font-size: 100%;
+}
+
+
+
+.formulaire_contact {
+    padding: 2px;
+    margin: 2px;
+}
+
+
+
+
+
+
+
+                                                 /*RESPONSIVE*/  
+
+@media screen and (max-width: 700px)
+{
+
+.links {
+    height: auto;
+ 
+}
+.article {
+    font-size: 1.5rem;
+}
+.li { 
+    display: block;
+   }
+.promotion {
+    height: auto;
+}
+
+
+table {
+    flex-wrap: wrap;
+    width: auto;
+}
+form  {
+    margin: auto;
+}
+
+.imgpro {
+    width : 100px;
+}
+
+
+
+}
