@@ -11,7 +11,7 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
 ?>
 
  
-?>
+<body>
 
 <h1>Ajouter un produit</h1>
 
@@ -31,15 +31,18 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
     </select>
 
     
-    <label for="lib">Libellé </label><input type="text" name="lib" class="form-control"><br>
-    <label for="photopro">Photo </label><input type="file" name="photopro" class="form-control"><br>
-    <label for="desc">Description </label><textarea title="descriptionpro" name="desc" class="form-control" ></textarea><br>
-    <label for="prix">Prix </label><input type="number" name="prix" class="form-control"><br>
-    <label for="stock">Stock </label><input type="number" name="stock" class="form-control"><br>
-    <label for="couleur">Couleur </label><input type="text" name="couleur" class="form-control"><br>
+    <label for="lib">Libellé </label><input type="text" name="lib" id="lib"class="form-control"><br>
+<label for="nomphoto">Nom de la photo : </label>
+    <input type="text" name="img" id="img" class="form-control">
+    <label for="photo">Photo : </label>
+    <input type="file" name="fichier" id="fichier" class="form-control"><br><br>
+    <label for="desc">Description </label><textarea title="descriptionpro" name="desc" id="id" class="form-control" ></textarea><br>
+    <label for="prix">Prix </label><input type="number" name="prix" id="prix" class="form-control"><br>
+    <label for="stock">Stock </label><input type="number" name="stock" id="stock" class="form-control"><br>
+    <label for="couleur">Couleur </label><input type="text" name="couleur" id="couleur"  class="form-control"><br>
 
     <label for="bloqué">Produit bloqué  
-    </label><br><input type="radio" name=bloqué value="oui"> Oui
+    </label><br><input type="radio" name="bloqué" id="bloqué" value="oui"> Oui
     <input type="radio" name="bloqué" value="non" checked>Non <br><br>
     <button type="submit" id="submit" value="envoyer" class="alert alert-success" role="alert">Envoyer</button>               
                <button type="reset" value="annuler" class="alert alert-danger">Effacer</button>
@@ -51,9 +54,11 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
 </form>
 
 
-
+<script src="../assets/js/ajout"></script>
+</body>
 <?php
 include("./footer.php")
 ?>
+
 
 

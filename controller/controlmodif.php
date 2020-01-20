@@ -1,6 +1,6 @@
 <?php
 
-
+require("./connexiondb.php");
 $pro_id =$_GET['pro_id'];
 
 
@@ -80,61 +80,85 @@ if (empty($_POST["couleur"])){
 }
 
 
+$db=connexionBase();
+
+$photo = $_FILES["fichier"]; // récup le fichier 
+
+$aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff");
+
+//$finfo = finfo_open(FILEINFO_MIME_TYPE);
+//$mimetype = finfo_file($finfo, $photo);  //finfo::file — Retourne des informations à propos d'un fichier
+//finfo_close($finfo);
+
+var_dump($_FILES);
+
+
+
+
 $ref = $_POST["ref"]; //récupère les données saisies dans le champ référence
 $cat = intval($_POST["cat"]); //récupère les données saisies dans le champ catégorie
+
 $lib = $_POST["lib"];//récupère les données saisies dans le champ libellé
 $desc = $_POST["desc"]; //récupère les données saisies dans le champ description
 $prix = $_POST["prix"]; //récupère les données saisies dans le champ Prix
 $stock = intval($_POST["stock"]); //récupère les données saisies dans le champ stock
 $couleur = $_POST["couleur"]; //récupère les données saisies dans le champ couleur
-/*$photo = $_POST["photopro"];*/ //récupère les données saisies dans le champ photo
 
 
-function connexionBase()
-{
-   // Paramètre de connexion serveur
-   $host = "localhost:3308";
-   $login= "root";     // identifiant d'accès au serveur 
-   $password="";    // mot de passe pour s'identifier au serveur
-   $base = "Jarditou";    // la base de donnée
- 
-   try 
-   {
-        	
-    $db = new PDO('mysql:host=localhost;dbname=jarditou;charset=utf8', 'root', ''); // connexion à la base de donnée, une fois la connexion établie, $db devient un objet
-    return $db; // la connexion établie, :$db permet d'utiliser toutes les méthodes de la PDO (query(), prepare(), execute() . . .)
-    } 
-    catch (Exception $e) 
-    {
-        echo 'Erreur : ' . $e->getMessage() . '<br>';
-        echo 'N° : ' . $e->getCode() . '<br>';
-        die('Connexion au serveur impossible.');
-    } 
-}
-$db=connexionBase();
-//requête avec les values de type variable entre côtes et double côtes 
-$sql = ("UPDATE produits 
-SET pro_cat_id = '" .$cat. "',
-pro_ref = '" .$ref. "', 
-pro_libelle = '" .$lib. "', 
-pro_description = '" .$desc. "', 
-pro_prix = '" .$prix. "', 
-pro_stock = '" .$stock. "', 
-pro_couleur = '" .$couleur. "', 
-pro_photo = null,
+$img = $_POST["img"]; // recupère le nom que j'ai donné à l'image dans le formulaire
+
+$img_name=basename($photo['name']);  //prend le vrai nom du fichier
+
+$fichier_path = "../assets/img" .$img_name;
+
+
+
+move_uploaded_file($img_name, $fichier_path);      //upload l'image 
+
+
+
+var_dump($fichier_path);
+var_dump($img);  
+var_dump($img_name);
+
+var_dump($_POST);
+var_dump($photo);
+
+
+$insert = $db->prepare // crée une requète préparer 
+("UPDATE produits 
+SET pro_cat_id = :cat,
+pro_ref = :ref, 
+pro_libelle = :lib, 
+pro_description = :desc, 
+pro_prix = :prix, 
+pro_stock = :stock, 
+pro_couleur = :couleur, 
+pro_photo = :format,
  pro_d_modif = NOW(), 
  pro_bloque = null
  WHERE pro_id = ".$pro_id);
 
+ 
+// ajoute les données envoyés en renommant le champs par sécurité
+$insert->bindValue(":cat", $cat, PDO::PARAM_INT); /* insère la catégorie du produit et change le type de donnée en entier */
+$insert->bindValue(":ref", $ref); /* insère la référence de produit  */
+$insert->bindValue(":lib", $lib); /* insère le nom du produit */
+$insert->bindValue(":desc", $desc); /* insère la description du produit */
+$insert->bindValue(":prix", $prix, PDO::PARAM_INT); /* insère le prix du produit et change le type de donnée en entier */
+$insert->bindValue(":stock", $stock, PDO::PARAM_INT); /* insère la quantité de produit et change le type de donnée en entier */
+$insert->bindValue(":couleur", $couleur); /* insère la couleur du produit */
+$insert->bindValue(":format",  $img_name); /* insère le format l'image */
+
+// var_dump($categorie, $reference, $libelle, $description, $prix, $stock, $couleur, $extension->getExtension()); // affiche les données récupérées
+$insert->execute();
 
 
-$result = $db->query($sql); 
 
+var_dump($insert);
 
-
-var_dump($result); // affiche si la base de données à été alimentée ou non, si message d'erreur, aller vérifier la requête 
 var_dump($cat, $ref, $lib, $prix, $stock ); //affiche les informationss
 
-header('Location:../views/tableau.php');
+//header('Location:../views/tableau.php');
 
 ?>

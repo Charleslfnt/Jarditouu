@@ -62,7 +62,7 @@ $product = $result->fetchObject();
 
 </section>
 <?php
-break;
+break;   //arrête la boucle
 }
 ?>
 

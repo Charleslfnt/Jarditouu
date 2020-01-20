@@ -11,15 +11,12 @@
 </head>
 
         <!--Mon Body-->
-    <body>
+   
                                 <!--Colonnes Bootstrap-->
 
-      <div class="container">
-      <!--<div class="row">
-        <div class="col-12 col-sm-6 col-md-7 col-lg-8 col-xl-9"></div>
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3"></div>
-      </div> -->
-      
+      <div class="container-fluid col-sm-8 col-md-8 col-lg-8 col-xl-8">
+     
+      <body>
 
 
              <!--Header-->
@@ -41,7 +38,8 @@
                 <li class="nav-item"><a class="nav-link" href="index.php">Accueil /</a></li>
                 <li class="nav-item"><a class="nav-link" href="views/tableau.php">Produits /<a></li>
                 <li class="nav-item"><a class="nav-link" href="views/contact.php">Contact /</a></li>
-                <li class="nav-item"><a class="nav-link" href="views/ajout.php">Ajouter un produit</a></li>
+                <li class="nav-item"><a class="nav-link" href="views/ajout.php">Ajouter un produit /</a></li>
+                <li class="nav-item"><a class="nav-link" href="views/form_session.php">Connexion</a></li>
         
               </ul>
             </div>

@@ -21,25 +21,26 @@ $result = $db->query($requete); //Exécute une requête SQL, retourne un jeu de 
 
              <!--Tableau des articles-->
 
-        <div class="table-responsive">
+        <div class="table-responsivecol-xs=12 col-sm=12 col-md-12 ">
            
 
-            <table class="table table-striped table-hover table-bordered" height="110px" width="1000px">
+            <table class="table table-striped table-hover table-bordered">
                  <caption>Tableau des articles</caption>
-              <thead>
+             
                 <tr>
-                    <th><b>Clé<b></th>
-                    <th><b>produit</b></th>   
-                    <th><b>Référence</b></th>
-                    <th><b>Nom du produit</b></th>
-                   <!-- <th><b>description</b></th>
-                    <th><b>Prix</b></th>-->
-                    <th><b>Quantité</b></th>
-                    <th><b>couleur</b></th>
-                    <th><b>Photo</b></th>
-                    <th><b>Date d'ajout</b></th>
-                    <th><b>Date de modification</b></th>
-                    <th><b>Bloquer le produit à la vente</b></th>
+                    <th scope="col"><b>Clé<b></th>
+                    <th scope="col"><b>produit</b></th>   
+                    <th scope="col"><b>Référence</b></th>
+                    <th scope="col"><b>Nom du produit</b></th>
+                   <!-- <thscope="row""><b>description</b></th>
+                    <thscope="row""><b>Prix</b></th>-->
+                    <th scope="col"><b>Quantité</b></th>
+                    <th scope="col"><b>couleur</b></th>
+                    <th scope="col"><b>Photo</b></th>
+                    <th scope="col"><b>Date d'ajout</b></th>
+                    <th scope="col"><b>Date de modification</b></th>
+                    <th scope="col"><b>Bloquer le produit à la vente</b></th>
+                    <th scope="col"><b>Supprimer</b></th>
                 </tr>
             </thead>
 
@@ -48,29 +49,30 @@ $result = $db->query($requete); //Exécute une requête SQL, retourne un jeu de 
             
                 ?>
                 	<tr>
-                    <td><?=$product->pro_id; ?></td>
+<td scope="row"><?=$product->pro_id; ?></td>
 
-<td><?=$product->pro_cat_id; ?></td>
+<td scope="row" ><?=$product->pro_cat_id; ?></td>
 
-<td><?=$product->pro_ref; ?></td>
+<td scope="row"><?=$product->pro_ref; ?></td>
 
-<td><a href="./infoproduit.php?pro_id=<?=$product->pro_id;?>"><?=$product->pro_libelle;?></a></td>
+<td scope="row"><a href="./infoproduit.php?pro_id=<?=$product->pro_id;?>"><?=$product->pro_libelle;?></a></td>
 
-<!--<td><?=$product->pro_description; ?></td>
+<!--<td scope="row"><?=$product->pro_description; ?></td>
 
-<td><?=$product->pro_prix; ?></td>-->
+<td scope="row"><?=$product->pro_prix; ?></td>-->
 
-<td><?=$product->pro_stock; ?></td>
+<td scope="row"><?=$product->pro_stock; ?></td>
 
-<td><?=$product->pro_couleur; ?></td>
+<td scope="row"><?=$product->pro_couleur; ?></td>
 
-<td scrape="row"><img class="img-fluid" src="../assets/img/<?=$product->pro_id.".".$product->pro_photo?>"></td>   <!--merci léo et orlane -->
+<td scope="row"><img class="img-fluid" src="../assets/img/<?=$product->pro_photo?>"></td>   <!--merci léo et orlane -->
 
-<td><?=$product->pro_d_ajout; ?></td>
+<td scope="row"><?=$product->pro_d_ajout; ?></td>
 
-<td><?=$product->pro_d_modif; ?></td>
+<td scope="row"><?=$product->pro_d_modif; ?></td>
 
-<td><?=$product->pro_bloque; ?></td>
+<td scope="row"><?=$product->pro_bloque; ?></td>
+<td scope="row"><a href="../controller/delete_controller.php"><button type="submit" value="supprimer" class="btn btn-danger">Supprimer</a></td>
 
 </tr>
 <?php

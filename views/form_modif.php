@@ -13,7 +13,7 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
 
 <hr>
 
-<form action="../controller/controlmodif.php?pro_id=<?=$_GET['pro_id']?>" method="POST"> 
+<form action="../controller/controlmodif.php?pro_id=<?=$_GET['pro_id']?>" method="POST" enctype="multipart/form-data"> 
 
 <fieldset>
                 <legend>Saisissez les informations</legend>
@@ -27,7 +27,10 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
 <?php } ?>
             </select><br>
     <label for="lib">Libellé </label><input type="text" name="lib" class="form-control"><br>
-    <label for="photopro">Photo </label><input type="file" name="photopro" class="form-control"><br>
+    <label for="nomphoto">Nom de la photo : </label>
+    <input type="text" name="img" class="form-control">
+    <label for="photo">Photo : </label>
+    <input type="file" name="fichier" id="photo" class="form-control"><br><br>
     <label for="desc">Description </label><textarea title="descriptionpro" name="desc" class="form-control" ></textarea><br>
     <label for="prix">Prix </label><input type="number" name="prix" class="form-control"><br>
     <label for="stock">Stock </label><input type="number" name="stock" class="form-control"><br>

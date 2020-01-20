@@ -136,17 +136,11 @@ html {
 }
 
 
-table {
-    flex-wrap: wrap;
-    width: auto;
-}
 form  {
     margin: auto;
 }
 
-.imgpro {
-    width : 100px;
-}
+
 
 
 
