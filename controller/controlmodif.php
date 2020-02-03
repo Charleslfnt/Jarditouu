@@ -15,95 +15,36 @@ $controlPrix = "/[0-9]+(\.[0-9]{2})?$/";
 if (empty($_POST["cat"])) {
     echo"Veuillez saisir la catégorie"."<br>";
  } else {
-     echo $_POST["cat"]."<br>";
+    $cat = (int)($_POST["cat"]); //récupère les données saisies dans le champ catégorie / intval — Retourne la valeur numérique entière équivalente d'une variable
  }
-
-
 
 
 
 if (empty($_POST["ref"]) || !preg_match($controlRef,$_POST["ref"])) {
    echo"Veuillez saisir la référence"."<br>";
 } else {
-    echo $_POST["ref"]."<br>";
+    $ref = $_POST["ref"]; //récupère les données saisies dans le champ référence
 }
 
 
-
-
- 
 
 if (empty($_POST["lib"])) { 
     echo "Veuillez saisir le libellé"."<br>"; 
 } else {
-    echo $_POST["lib"]."<br>";
+    $lib = $_POST["lib"];//récupère les données saisies dans le champ libellé
 }
 
 
-/*if (empty($_POST["photopro"])) {
-    echo"Veuillez mettre une photo"."<br>";
- } else {
-     echo $_POST["photopro"]."<br>";
- }
-
-
-
-
-if (empty($_POST["desc"])){  //description du produit
-    echo"Veuillez saisir la description"."<br>"; 
-} else {
-    echo $_POST["desc"]."<br>";
-}*/
-
-
-
-if (empty($_POST["prix"]) || !preg_match($controlPrix, $_POST["prix"])){ // Prix de l'article 
-    echo"Veuillez saisir le prix"."<br>"; 
-} else {
-    echo $_POST["prix"]."<br>";  //regex qui accepte chiffres uniquement
-}
-
-
-
-if (empty($_POST["stock"]) || !preg_match($controlStock,$_POST["stock"])){
-    echo"Veuillez saisir le nombre de stock"."<br>"; 
-} else {
-    echo $_POST["stock"]."<br>";
-}
-
-
-
-if (empty($_POST["couleur"])){
-    echo"Veuillez saisir la couleur"."<br>"; 
-} else {
-    echo$_POST["couleur"]."<br>";
-}
-
-
-$db=connexionBase();
-
+    
 $photo = $_FILES["fichier"]; // récup le fichier 
 
 $aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff");
 
-//$finfo = finfo_open(FILEINFO_MIME_TYPE);
-//$mimetype = finfo_file($finfo, $photo);  //finfo::file — Retourne des informations à propos d'un fichier
-//finfo_close($finfo);
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
 
-var_dump($_FILES);
+$mimetype = finfo_file($finfo, $_FILES["fichier"]["tmp_name"]);
 
-
-
-
-$ref = $_POST["ref"]; //récupère les données saisies dans le champ référence
-$cat = intval($_POST["cat"]); //récupère les données saisies dans le champ catégorie
-
-$lib = $_POST["lib"];//récupère les données saisies dans le champ libellé
-$desc = $_POST["desc"]; //récupère les données saisies dans le champ description
-$prix = $_POST["prix"]; //récupère les données saisies dans le champ Prix
-$stock = intval($_POST["stock"]); //récupère les données saisies dans le champ stock
-$couleur = $_POST["couleur"]; //récupère les données saisies dans le champ couleur
-
+finfo_close($finfo);
 
 $img = $_POST["img"]; // recupère le nom que j'ai donné à l'image dans le formulaire
 
@@ -111,9 +52,42 @@ $img_name=basename($photo['name']);  //prend le vrai nom du fichier
 
 $fichier_path = "../assets/img" .$img_name;
 
-
-
 move_uploaded_file($img_name, $fichier_path);      //upload l'image 
+ 
+
+
+
+
+if (empty($_POST["desc"])){  //description du produit
+    echo"Veuillez saisir la description"."<br>"; 
+} else {
+    $desc = $_POST["desc"]; //récupère les données saisies dans le champ description
+}
+
+
+
+if (empty($_POST["prix"]) || !preg_match($controlPrix, $_POST["prix"])){ // Prix de l'article 
+    echo"Veuillez saisir le prix"."<br>"; 
+} else {
+    $prix = (int)$_POST["prix"]; //récupère les données saisies dans le champ Prix
+}
+
+
+
+if (empty($_POST["stock"]) || !preg_match($controlStock,$_POST["stock"])){
+    echo"Veuillez saisir le nombre de stock"."<br>"; 
+} else {
+    $stock = (int)($_POST["stock"]); //récupère les données saisies dans le champ stock
+}
+
+
+
+if (empty($_POST["couleur"])){
+    echo"Veuillez saisir la couleur"."<br>"; 
+} else {
+    $couleur = $_POST["couleur"]; //récupère les données saisies dans le champ couleur
+}
+
 
 
 

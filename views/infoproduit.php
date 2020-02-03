@@ -3,7 +3,6 @@
 <?php require("../controller/connexiondb.php"); ?>
 
 <head>
-
 <?php 
 include("./headerviews.php");
 $db=connexionBase();
@@ -35,7 +34,7 @@ $product = $result->fetchObject();
 <table>
 
 <div class="row-xl-1 row-lg-1 row-md-1 row-sm-1 row-xs-1">
-<img class="img-fluid" class="imgpro" src="../assets/img/<?=$product->pro_id ?>.<?= $product->pro_photo ?>" alt= >
+
  </div>
 
 
@@ -48,13 +47,13 @@ $product = $result->fetchObject();
 
        <div> <!-- contenu des details de l'article -->
 
-       <p>Id: <?php echo $product->pro_id;?></p>
-
+       <p>Id: <?php echo $product->pro_id;?></p> <!--id-->
+    <img class="img-fluid" src="../assets/img/<?=$product->pro_photo?>"> <!--image-->
            <h4>Référence : <?php echo $product->pro_ref;?></h3> <br><!--Références-->
            <h4>Description : <?php echo $product->pro_description;?></h3> <br><!--description-->
            <h4>Prix : <?php echo $product->pro_prix;?></h3> <br><!--prix-->
            <h4>Date : <?php echo $product->pro_d_ajout;?></h3> <br> <!--date-->
-           <h4>Couleur : <?php echo $product->pro_couleur;?></h3> <br> <!--date-->
+           <h4>Couleur : <?php echo $product->pro_couleur;?></h3> <br> <!--couleur-->
 
        </div>
    </article>
@@ -66,10 +65,12 @@ break;   //arrête la boucle
 }
 ?>
 
+<?php if ($_SESSION['role'] == 1){ //ne fonctionne pas pour l'instant
+?>
 <a href="./form_modif.php?pro_id=<?=$product->pro_id?>"><button class="alert alert-warning" role="alert">Modifier</button></a> <br>
-<a href="../controller/delete_controller.php?pro_id=<?=$product->pro_id;?>"><button class="alert alert-danger" role="alert">Delete</button></a>
+<a href="../controller/delete_controller.php?pro_id=<?=$product->pro_id;?>"><button class="alert alert-danger" role="alert">Supprimer</button></a>
 <br><br>
-
+<?php } ?>
 </div>
 <?php
 include("./footer.php");

@@ -40,7 +40,7 @@ $result = $db->query($requete); //Exécute une requête SQL, retourne un jeu de 
                     <th scope="col"><b>Date d'ajout</b></th>
                     <th scope="col"><b>Date de modification</b></th>
                     <th scope="col"><b>Bloquer le produit à la vente</b></th>
-                    <th scope="col"><b>Supprimer</b></th>
+                   
                 </tr>
             </thead>
 
@@ -65,14 +65,14 @@ $result = $db->query($requete); //Exécute une requête SQL, retourne un jeu de 
 
 <td scope="row"><?=$product->pro_couleur; ?></td>
 
-<td scope="row"><img class="img-fluid" src="../assets/img/<?=$product->pro_photo?>"></td>   <!--merci léo et orlane -->
+<td scope="row"><img class="img-fluid" src="../assets/img/<?=$product->pro_photo?>"></td>   <!--image du produit-->
 
 <td scope="row"><?=$product->pro_d_ajout; ?></td>
 
 <td scope="row"><?=$product->pro_d_modif; ?></td>
 
 <td scope="row"><?=$product->pro_bloque; ?></td>
-<td scope="row"><a href="../controller/delete_controller.php"><button type="submit" value="supprimer" class="btn btn-danger">Supprimer</a></td>
+
 
 </tr>
 <?php
@@ -80,6 +80,7 @@ $result = $db->query($requete); //Exécute une requête SQL, retourne un jeu de 
 ?>
 
 </table>
+</div>
 <?php
 include("./footer.php");
 ?>

@@ -3,7 +3,7 @@ include("./headerviews.php");
 ?>
 
             <!--Le H1-->
-             <h1 class="formh1">Formulaire</h1>
+             <h1 class="formh1">Contactez nous</h1>
 
               <!--Partie formulaire-->
               <div class="formulaire_contact">
@@ -41,7 +41,7 @@ include("./headerviews.php");
                 <!--fieldset2-->
                 <fieldset>
                             <legend>Votre demande</legend>
-                    <label for="Sujet">Sujet* : </label><select id="sujet" name="sujet"  title="Selectionnez votre sujet">
+                    <label for="Sujet">Sujet* : </label><select id="sujet" name="sujet" class="form-control"  title="Selectionnez votre sujet">
                     <span id="sujet"></span>
                        
                         <option value="Mes commmandes">Mes commandes</option>

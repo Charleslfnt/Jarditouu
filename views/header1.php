@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -39,8 +40,15 @@
                 <li class="nav-item"><a class="nav-link" href="views/tableau.php">Produits /<a></li>
                 <li class="nav-item"><a class="nav-link" href="views/contact.php">Contact /</a></li>
                 <li class="nav-item"><a class="nav-link" href="views/ajout.php">Ajouter un produit /</a></li>
-                <li class="nav-item"><a class="nav-link" href="views/form_session.php">Connexion</a></li>
-        
+                <li class="nav-item"><a class="nav-link" href="views/form_inscription.php">Inscription /</a></li>
+                <? if(!isset($_SESSION["user_login"]){
+                ?>
+                <li class="nav-item"><a class="nav-link" href="./form_connexion.php">Connexion /</a></li>
+                <? } 
+                else { ?>
+                  <li class="nav-item"><a class="nav-link" href="../controller/log_out_controller.php">Déconnexion</a></li>
+               <? }
+                ?>
               </ul>
             </div>
             </nav>

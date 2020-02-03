@@ -1,4 +1,5 @@
 <?php
+
 include("./headerviews.php");
 
 
@@ -30,8 +31,9 @@ $categorie = $result->fetchall(PDO::FETCH_OBJ);
 <?php } ?>
     </select>
 
+<!-- Formulaire à remplir -->
     
-    <label for="lib">Libellé </label><input type="text" name="lib" id="lib"class="form-control"><br>
+    <label for="lib">Libellé </label><input type="text" name="lib" id="lib"class="form-control"><br> 
 <label for="nomphoto">Nom de la photo : </label>
     <input type="text" name="img" id="img" class="form-control">
     <label for="photo">Photo : </label>
