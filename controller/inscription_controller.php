@@ -30,26 +30,27 @@ if (!empty($_POST["nom"]) && (!empty($_POST["prenom"]) && (!empty($_POST["email"
    $insert = $db->prepare 
    (
        // crée une requète préparer 
-    "INSERT INTO utilisateurs ( user_nom, user_prenom, user_mail, user_login, user_password, user_date_inscription) 
-   VALUES (:nom, :prenom, :email, :log, :pass, NOW())");
+    "INSERT INTO utilisateurs ( user_nom, user_prenom, user_mail, user_login, user_password) 
+   VALUES (:nom, :prenom, :email, :log, :pass");
    
    $insert->bindValue(":nom", $_SESSION["nom"]);
    $insert->bindValue(":prenom", $_SESSION["prenom"]);
    $insert->bindValue(":email", $_SESSION["email"]);
    $insert->bindValue(":log", $_SESSION["login"]); 
    $insert->bindValue(":pass", $_SESSION["password"]); 
-   //$insert->bindValue(":date_inscription", NOW();
    
    
    
-   $insert->execute(); 
-
+   $insert->execute();
    header("location:../index.php");
+  
+
+   
 } 
 else 
 {
    echo"Cette page nécessite une identification.";  
-  // header("location:../views/form_session.php");
+   //header("location:../views/form_session.php");
 }
 
 

@@ -8,7 +8,7 @@ function connexionBase()
    $host = "localhost:3308";
    $login= "root";     // identifiant d'accès au serveur 
    $password="";    // mot de passe pour s'identifier au serveur
-   $base = "Jarditou";    // la base de donnée
+   $base = "Jarditou";    // la base de données
  
    try 
    {

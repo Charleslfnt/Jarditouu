@@ -9,7 +9,7 @@ $errormsg = array(); //declare un tableau d'erreur
 
 $_SESSION["login"] = $_POST["login"];
 $_SESSION["password"] = $_POST["password"];
-$_SESSION["role"];
+
 
 
 
@@ -30,9 +30,6 @@ if (isset($_POST['connexion'])) { //on teste si la variable est définie
         if ($user->user_login == $_POST['login']) {  //si le login correspond
             if (password_verify($_POST['password'], $user->user_password)) {   //ON compare le mot de passe saisie par l'utilisateur et celui de la base de données :
                 $_SESSION['login'] = $_POST['login']; //variable session ou on stock le login
-                $_SESSION['role'] = $user->user_role;
-       
-                 var_dump($userrole);
                 header('Location:../views/table_sessions.php?user_id='.$_SESSION['id']);
             } else {
                 //on stock message d'erreur dans le tableau si le mot de passe est incorrect 
@@ -49,8 +46,3 @@ if (isset($_POST['connexion'])) { //on teste si la variable est définie
             }
             
 } 
-if ($_SESSION['role'] == 1){
-    echo("vous êtes admin");
-} else {
-echo("vous êtes client");
-}

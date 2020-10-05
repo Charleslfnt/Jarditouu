@@ -90,25 +90,6 @@ if (empty($_POST["couleur"])){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $insert = $db->prepare 
 (
     // crée une requète préparer 

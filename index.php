@@ -38,10 +38,10 @@ var_dump($_SESSION);
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar"> 
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.php">Accueil /</a></li>
-                <li class="nav-item"><a class="nav-link" href="views/tableau.php">Produits /<a></li>
-                <li class="nav-item"><a class="nav-link" href="views/contact.php">Contact /</a></li>
-                <li class="nav-item"><a class="nav-link" href="views/ajout.php">Ajouter un produit /</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="views/tableau.php">Produits<a></li>
+                <li class="nav-item"><a class="nav-link" href="views/contact.php">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="views/ajout.php">Ajouter un produit</a></li>
                 
                 <?php if(!isset($_SESSION['login'])){
                 ?>
@@ -49,14 +49,7 @@ var_dump($_SESSION);
                 <?php } 
                 else{ ?>
                   <li class="nav-item"><a class="nav-link" href="./controller/log_out_controller.php">Déconnexion</a></li>
-               <?php }
-                  if ($_SESSION['role'] == 1){ 
-                    ?>
-                    <li class="nav-item"><a class="nav-link" href="./views/table_sessions.php">/ Espace membres</a></li>
-                 <?php }
-                ?>
-
-              
+               <?php }?>
                
               </ul>
             </div>

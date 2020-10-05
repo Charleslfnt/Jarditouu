@@ -3,8 +3,7 @@
 session_start();
 require("./connexiondb.php");
 $db=connexionBase();  
-                                                    //cette page de code ne sert à rien
-if(isset($_POST["connexion"]))
+                                                    
 {
     $log = htmlspecialchars($_POST["login"]);
 	$pass = $_POST["password"];

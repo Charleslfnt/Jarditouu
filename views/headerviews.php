@@ -36,23 +36,21 @@ var_dump($_SESSION);
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar"> 
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="../index.php">Accueil /</a></li>
-                <li class="nav-item"><a class="nav-link" href="tableau.php">Produits /<a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.php">Contact /</a></li>
-                <li class="nav-item"><a class="nav-link" href="ajout.php">Ajouter un produit /</a></li>
+                <li class="nav-item"><a class="nav-link" href="../index.php">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="tableau.php">Produits<a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="ajout.php">Ajouter un produit</a></li>
              
                 <?php if(!isset($_SESSION['login'])){
                 ?>
-                <li class="nav-item"><a class="nav-link" href="./form_connexion.php">Connexion </a></li>
+                <li class="nav-item"><a class="nav-link" href="./form_connexion.php">Connexion</a></li>
                 <?php } 
                 else{ ?>
                   <li class="nav-item"><a class="nav-link" href="../controller/log_out_controller.php">Déconnexion</a></li>
-               <?php } 
-                  if ($_SESSION['role'] == 1){ 
-                    ?>
-                    <li class="nav-item"><a class="nav-link" href="./table_sessions.php">/ Espace membres</a></li>
-                  <?php }
-                ?>
+                  <li class="nav-item"><a class="nav-link" href="./table_sessions.php">Espace membres</a></li>
+               <?php } ?>
+                    
+                 
         
               </ul>
             </div>

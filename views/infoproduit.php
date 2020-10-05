@@ -65,12 +65,11 @@ break;   //arrête la boucle
 }
 ?>
 
-<?php if ($_SESSION['role'] == 1){ //ne fonctionne pas pour l'instant
-?>
+
 <a href="./form_modif.php?pro_id=<?=$product->pro_id?>"><button class="alert alert-warning" role="alert">Modifier</button></a> <br>
 <a href="../controller/delete_controller.php?pro_id=<?=$product->pro_id;?>"><button class="alert alert-danger" role="alert">Supprimer</button></a>
 <br><br>
-<?php } ?>
+
 </div>
 <?php
 include("./footer.php");
